@@ -1,6 +1,8 @@
 Ansible Role: AWS CLI
 =========
 
+[![Build Status](https://travis-ci.org/tommarshall/ansible-role-awscli.svg?branch=master)](https://travis-ci.org/tommarshall/ansible-role-awscli)
+
 Installs [AWS Command Line Interface](https://aws.amazon.com/cli/) on RHEL/CentOS or Debian/Ubuntu servers via `pip`. Configures AWS CLI user credentials, including support for profiles.
 
 Requirements
