@@ -1,0 +1,23 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: tommarshall
+  description: Installs and configures AWS CLI via pip.
+  company:
+  license: "license (BSD, MIT)"
+  min_ansible_version: 1.4
+  platforms:
+  - name: EL
+    versions:
+    - 6
+    - 7
+  - name: Ubuntu
+    versions:
+    - all
+  - name: Debian
+    versions:
+    - all
+  galaxy_tags:
+      - awscli
+      - aws

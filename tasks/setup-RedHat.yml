@@ -1,0 +1,6 @@
+---
+# ref: https://github.com/dbcli/awscli/blob/v1.8.1/README.md
+
+- name: Install python-pip via yum.
+  yum: "name=python-pip state=installed"
+  become: yes

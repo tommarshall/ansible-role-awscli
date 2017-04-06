@@ -1,0 +1,11 @@
+{% if item.profiles is defined %}
+{% for profile in item.profiles %}
+[{{ profile.name }}]
+output = {{ profile.output | default('json') }}
+region = {{ profile.region | default('') }}
+{% endfor %}
+{% else %}
+[default]
+output = {{ item.output | default('json') }}
+region = {{ item.region | default('') }}
+{% endif %}
