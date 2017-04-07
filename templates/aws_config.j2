@@ -1,11 +1,20 @@
 {% if item.profiles is defined %}
 {% for profile in item.profiles %}
 [profile {{ profile.name }}]
-output = {{ profile.output | default('json') }}
-region = {{ profile.region | default('') }}
+{% if profile.output | default(false) %}
+output = {{ profile.output }}
+{% endif %}
+{% if profile.region | default(false) %}
+region = {{ profile.region }}
+{% endif %}
+
 {% endfor %}
 {% else %}
 [default]
-output = {{ item.output | default('json') }}
-region = {{ item.region | default('') }}
+{% if item.output | default(false) %}
+output = {{ item.output }}
+{% endif %}
+{% if item.region | default(false) %}
+region = {{ item.region }}
+{% endif %}
 {% endif %}
