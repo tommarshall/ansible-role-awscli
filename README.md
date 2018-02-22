@@ -14,9 +14,12 @@ Role Variables
 --------------
 
 ```yml
+# Name of the 'pip' package to install
+awscli_pip_package: python-pip
+
+# Version of 'awscli' to install
 awscli_version: 1.11.73
 ```
-The version of `awscli` to install.
 
 ```yml
 awscli_users: []
