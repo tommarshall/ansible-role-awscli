@@ -7,6 +7,11 @@
 - include: setup-Debian.yml
   when: ansible_os_family == 'Debian'
 
+- name: Ensure botocore and boto3 modules are installed
+  pip:
+    name: [ "boto", "boto3", "botocore"]
+    extra_args: "--user"
+
 - name: Install awscli via pip.
   pip: "name=awscli version={{ awscli_version }}"
   become: yes
