@@ -7,6 +7,14 @@
 - include: setup-Debian.yml
   when: ansible_os_family == 'Debian'
 
+- name: "Ensure pip is upgraded to the latest level"
+  pip:
+    name: [ "pip"]
+    state: forcereinstall
+    virtualenv: "{{ cultivator_virtualenv_path }}"
+  become: true
+  tags: [pip]
+
 - name: Ensure botocore and boto3 modules are installed
   pip:
     name: [ "boto", "boto3", "botocore"]
