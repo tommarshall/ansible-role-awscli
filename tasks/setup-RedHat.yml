@@ -10,8 +10,7 @@
     disablerepo: "rhel-server-rhscl-7-rpms"
   become: true
   tags: [packages]
-  environment: 
-    ansible_python_interpreter: "/usr/bin/python2.7"
+  ignore_errors: yes
 
 # Create Cultivator VirtualEnv FilePath
 - name: "[Cultivator - VirtualEnv] Create VirtualEnv Path"
