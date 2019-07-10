@@ -18,7 +18,6 @@
 - name: Ensure botocore and boto3 modules are installed
   pip:
     name: [ "boto", "boto3", "botocore"]
-    extra_args: "--user"
     virtualenv: "{{ cultivator_virtualenv_path }}"
   become: true
   tags: [pip]
