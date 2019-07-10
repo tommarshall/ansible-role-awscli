@@ -1,8 +1,27 @@
 ---
 # ref: https://github.com/dbcli/awscli/blob/v1.8.1/README.md
 
-- name: Install python-pip via yum.
-  yum: 
-    name: "{{ awscli_pip_package }}" 
-    state: latest
-  become: yes
+
+# Install Base OS Packages
+- name: "[Cultivator - Pre-Reqs] Install Base Packages for AWS CLI"
+  yum:
+    name: "{{ cultivator_base_packages }}"
+    state: present
+    disablerepo: "rhel-server-rhscl-7-rpms"
+  become: true
+  tags: [packages]
+
+# Create Cultivator VirtualEnv FilePath
+- name: "[Cultivator - VirtualEnv] Create VirtualEnv Path"
+  file:
+    path: "{{ cultivator_virtualenv_path }}"
+    state: directory
+    mode: '0755'
+  tags: [pip]
+
+
+  #- name: Install python-pip via yum.
+  #  yum: 
+  #    name: "{{ awscli_pip_package }}" 
+  #    state: latest
+  #  become: yes

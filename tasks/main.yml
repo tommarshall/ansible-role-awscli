@@ -11,10 +11,18 @@
   pip:
     name: [ "boto", "boto3", "botocore"]
     extra_args: "--user"
+    virtualenv: "{{ cultivator_virtualenv_path }}"
+  become: true
+  tags: [pip]
 
 - name: Install awscli via pip.
-  pip: "name=awscli version={{ awscli_version }}"
-  become: yes
+  pip: 
+    name: "awscli" 
+    version: "{{ awscli_version }}"
+    virtualenv: "{{ cultivator_virtualenv_path }}"
+  become: true
+  tags: [pip]
+
 
 - name: Ensure the users' .aws directory exists.
   file:
