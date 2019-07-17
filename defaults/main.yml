@@ -9,22 +9,24 @@ awscli_users: []
 # defaults file for ansible-role-cultivator
 
 # VirtualEnv that Cultivator uses as a working/install dir
-cultivator_virtualenv_path: "/opt/cultivator"
+pyenv_virtualenv_path: "/opt/cultivator"
 
 # Base Packages
-cultivator_base_packages:
-#    - python-pip
+pyenv_base_packages:
     - git
     - pyOpenSSL
     - python-netaddr
     - python-six
+    - python-virtualenv
+    #- python-pip
     #- python2-boto3
     #- python-click
-    #    - python-httplib2
-    - python-virtualenv
+    #- python-httplib2
 
 # Packages to install with pip
-cultivator_pip_packages:
+pyenv_pip_packages:
     - ansible-tower-cli
     - boto
 
+# Extra args that can be passed to pip
+pyenv_pip_extra_args: ""

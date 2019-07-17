@@ -11,14 +11,16 @@
   pip:
     name: [ "pip"]
     state: forcereinstall
-    virtualenv: "{{ cultivator_virtualenv_path }}"
+    virtualenv: "{{ pyenv_virtualenv_path }}"
+    extra_args: "{{ pyenv_pip_extra_args }}"
   become: true
   tags: [pip]
 
 - name: Ensure botocore and boto3 modules are installed
   pip:
     name: [ "boto", "boto3", "botocore"]
-    virtualenv: "{{ cultivator_virtualenv_path }}"
+    virtualenv: "{{ pyenv_virtualenv_path }}"
+    extra_args: "{{ pyenv_pip_extra_args }}"
   become: true
   tags: [pip]
 
@@ -26,7 +28,8 @@
   pip: 
     name: "awscli" 
     version: "{{ awscli_version }}"
-    virtualenv: "{{ cultivator_virtualenv_path }}"
+    virtualenv: "{{ pyenv_virtualenv_path }}"
+    extra_args: "{{ pyenv_pip_extra_args }}"
   become: true
   tags: [pip]
 
